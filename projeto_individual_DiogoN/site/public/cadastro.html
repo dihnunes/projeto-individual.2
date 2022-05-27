@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Milton's | cadastro</title>
+
+
+    <script src="./js/funcoes.js"></script>
+
+
+    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!--header inicio-->
+    <div class="header">
+                <ul class="headerLeft">
+                    <h1>Milton's</h1>
+                    <li class="leftLi1"><a href="telaCadastro.html">Não possui conta?</a></li>
+                    <li class="leftLi2"><a href="telaLogin.html">Entrar</a></li>
+                </ul>
+    
+                <ul class="navbar">
+                    <li class="li1"><a href="#">Noticias recentes</a></li>
+                    <li class="li2"><a href="#">Eleições 2022</a></li>
+                    <li class="li3"><a href="#">Esportes</a></li>
+                    <li class="li4"><a href="#">Guerra na Ucrania</a></li>
+                    <li class="li5"><a href="#">Entretenimento</a></li>
+                </ul>
+            </div>
+    </div>
+    <!--header fim-->
+
+
+    <div class="banner ">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="container tamanho-conteudo">
+            <div class="card medio">
+                <h2>Bem-vindo!</h2>
+                <div class="formulario">
+
+                    <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
+
+                <label for="email_input" class="la1">Email:</label>
+                <input id="email_input" class="in1"> <br>
+
+                <label for="nome_input" class="la2">Nome:</label>
+                <input id="nome_input" class="in2"> <br>
+
+                <label for="senha_input" class="la3">Sua senha:</label>
+                <input id="senha_input" class="in3"> <br>
+
+                <label for="Csenha_input" class="la4">Confirme sua senha:</label>
+                <input id="Csenha_input" class="in4"> <br>
+
+                <button onclick=" cadastrar()" class="butao">Cadastrar-se</button>
+
+                </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
