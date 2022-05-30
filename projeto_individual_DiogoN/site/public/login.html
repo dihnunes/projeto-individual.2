@@ -27,9 +27,9 @@
             <h1 class="titulo">Milton's</h1>
 
             <ul class="navbar">
-                <li><a href="agora">login</a></li>
-                <li><a href="telaCadastro.html">cadastro</a></li>
-                <li><a href="Milton's.html">Inicio</a></li>
+                <li class="leftLi1"><a href="cadastro.html">Não possui conta?</a></li>
+                <li class="leftLi2"><a href="#" class="agora">Entrar</a></li>
+                <li class="leftLi2"><a href="index.html">inicio</a></li>
             </ul>
 
         </div>
@@ -45,22 +45,13 @@
             <div class="card">
                 <h2>Olá de volta!</h2>
                 <div class="formulario">
-
-                    <label for="email_input" class="la1">Email:</label>
-                    <input type="text" id="email_input" class="in1" placeholder="Login">
-
-                    <label for="senha_input" class="la2">Senha:</label>
-                    <input type="password" id="senha_input" class="in2" placeholder="******">
-
-                    <button onclick="entrar()" class="butao">Entrar</button>
-
                     <span class="tipo_campo">E-mail:</span>
                     <input id="email_input" type="text" placeholder="Login">
 
                     <span class="tipo_campo">Senha:</span>
                     <input id="senha_input" type="password" placeholder="******">
 
-                    <button class="btn" onclick="entrar()">Entrar</button>
+                    <button class="button" onclick="entrar()">Entrar</button>
 
 
                 </div>
@@ -78,8 +69,19 @@
 
     <!--footer inicio-->
     <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por um aluno &hearts;SPTech &copy; 2022</h4>
+        <div class="line1">
+            <h1>Milton's</h1>
+            <span>Todos os direitos reservados - 2022 - feito por &copy;DNunes</span>
+        </div>
+
+        <div class="decoração"></div>
+
+        <div class="line2">
+            <ul class="footerLi">
+                <li class="li1"><a href="">Fale conosco</a></li>
+                <li class="li2"><a href="">Comunicar erro</a></li>
+                <li class="li3"><a href="">Anuncie no Milton's</a></li>
+            </ul>
         </div>
     </div>
     <!--footer fim-->
@@ -134,7 +136,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "index.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
