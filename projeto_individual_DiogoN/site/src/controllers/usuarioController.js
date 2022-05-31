@@ -94,9 +94,50 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrar_questionario(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var resposta1 = req.body.resposta1Server;
+    var resposta2 = req.body.resposta2Server;
+    var resposta3 = req.body.resposta3Server;
+    var resposta4 = req.body.resposta4Server;
+    var resposta5 = req.body.resposta5Server;
+
+    // Faça as validações dos valores
+    if (resposta1 == undefined) {
+        res.status(400).send("A questão 1 está undefined!");
+    } else if (resposta2 == undefined) {
+        res.status(400).send("A questão 2 está undefined!");
+    } else if (resposta3 == undefined) {
+        res.status(400).send("A questão 3 está undefined!");
+    } else if (resposta4 == undefined) {
+        res.status(400).send("A questão 4 está undefined!");
+    } else if (resposta5 == undefined) {
+        res.status(400).send("A questão 5 está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrar_questionario(resposta1, resposta2, resposta3, resposta4, resposta5)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
+    cadastrar_questionario,
     listar,
     testar
 }
