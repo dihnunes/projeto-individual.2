@@ -34,7 +34,6 @@
             <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
         </ul>
 
-            </div>
     </div>
     
     <div class="banner ">
@@ -175,10 +174,10 @@ function cadastrar_questionario() {
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                mensagem_erro.innerHTML = "respostas guardadas com sucesso! Redirecionando para o índice de resposta...";
 
                 setTimeout(() => {
-                    window.location = "index.html";
+                    window.location = "dashboard/cards.html";
                 }, "2000")
                 
                 limparFormulario();

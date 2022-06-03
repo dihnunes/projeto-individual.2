@@ -20,66 +20,54 @@
 
 <body onload="validarSessao(), atualizacaoPeriodica()">
 
-    <div class="janela">
+    <div class="header">
+        <ul class="navbar">
+            <h1 class="titulo">Milton's</h1>
+            <li class="leftLi1"><a href="cadastro.html">Não possui conta?</a></li>
+            <li class="leftLi2"><a href="login.html">Entrar</a></li>
 
+            <li class="li1"><a href="index.html">Noticias recentes</a></li>
+            <li class="li2"><a href="#">Eleições 2022</a></li>
+            <li class="li3"><a href="#">Esportes</a></li>
+            <li class="li4"><a href="questionario.html" class="agora">Questionario</a></li>
+            <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
+        </ul>
 
-        <div class="header-left dash-header">
+    </div>
 
-            <h1>AcquaTec</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Aquários</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
+            <!-- <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
-            </div>
+            </div> -->
 
         </div>
 
         <div class="dash">
             <div class="regua">
                 <div class="item-regua perigo-frio">
-                    <h4>Perigo</h4>
-                    <h2>0°C</h2>
+                    <h4>pouca preferência</h4>
+                    <h2>0</h2>
                 </div>
                 <div class="item-regua alerta-frio">
-                    <h4>Alerta</h4>
-                    <h2>0°C</h2>
+                    <h4>Não muito escolhido</h4>
+                    <h2>0</h2>
                 </div>
                 <div class="item-regua ideal">
-                    <h4>Ideal</h4>
-                    <h2>0°C</h2>
+                    <h4>Normal</h4>
+                    <h2>0</h2>
                 </div>
                 <div class="item-regua alerta-quente">
-                    <h4>Alerta</h4>
-                    <h2>0°C</h2>
+                    <h4>Muito escolhido</h4>
+                    <h2>0</h2>
                 </div>
                 <div class="item-regua perigo-quente">
-                    <h4>Perigo</h4>
-                    <h2>0°C</h2>
+                    <h4>Tópico famoso</h4>
+                    <h2>0</h2>
                 </div>
             </div>
 
             <div class="cards">
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>resposta 1</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_1">-°C</p>
                     </div>
@@ -94,14 +82,14 @@
 
                 </div>
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>resposta 2</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_3">-°C</p>
                     </div>
                     <div class="cor-alerta ideal" id="card_3"></div>
                 </div>
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>resposta 3</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_4">-°C</p>
                     </div>
@@ -113,7 +101,22 @@
         </div>
     </div>
 
+    <div class="footer">
+        <div class="line1">
+            <h1>Milton's</h1>
+            <span>Todos os direitos reservados - 2022 - feito por &copy;DNunes</span>
+        </div>
 
+        <div class="decoração"></div>
+
+        <div class="line2">
+            <ul class="footerLi">
+                <li class="li1"><a href="">Fale conosco</a></li>
+                <li class="li2"><a href="">Comunicar erro</a></li>
+                <li class="li3"><a href="">Anuncie no Milton's</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 <script>
@@ -164,32 +167,32 @@
 
     function alertar(temperatura, idAquario) {
         var limites = {
-            muito_quente: 23,
-            quente: 22,
-            ideal: 20,
-            frio: 10,
-            muito_frio: 5
+            muito_famoso: 100,
+            famoso: 70,
+            normal: 50,
+            nao_muito_famoso: 30,
+            pouco_visto: 20
         };
 
         var classe_temperatura = 'cor-alerta';
 
-        if (temperatura >= limites.muito_quente) {
+        if (temperatura >= limites.muito_famoso) {
             classe_temperatura = 'cor-alerta perigo-quente';
             console.log("caiu no 1")
         }
-        else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+        else if (temperatura < limites.muito_quente && temperatura >= limites.famoso) {
             classe_temperatura = 'cor-alerta alerta-quente';
             console.log("caiu no 2")
         }
-        else if (temperatura < limites.quente && temperatura > limites.frio) {
+        else if (temperatura < limites.quente && temperatura > limites.nao_muito_famoso) {
             classe_temperatura = 'cor-alerta ideal';
             console.log("caiu no 3")
         }
-        else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+        else if (temperatura <= limites.frio && temperatura > limites.pouco_visto) {
             classe_temperatura = 'cor-alerta alerta-frio';
             console.log("caiu no 4")
         }
-        else if (temperatura < limites.min_temperatura) {
+        else if (temperatura < limites.normal) {
             classe_temperatura = 'cor-alerta perigo-frio';
             console.log("caiu no 5")
         }

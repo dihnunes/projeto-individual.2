@@ -80,7 +80,7 @@ body {
   padding: 20px;
 }
 
-.publicacao > *:not(:last-child) {
+.publicacao>*:not(:last-child) {
   padding: 0 0 10px 0;
 }
 
@@ -99,7 +99,7 @@ body {
   justify-content: flex-end;
 }
 
-.div-buttons > * {
+.div-buttons>* {
   margin-left: 30px;
 }
 
@@ -111,10 +111,11 @@ body {
 
 .dash {
   width: 75%;
-  position: relative;
+  margin-left: 13%;
+  margin-right: 13%;
   top: 0;
   left: 25%;
-  background-color: #161618;
+  background-color: rgb(19, 9, 149);
 
   /* width: 75%;
     display: flex;
@@ -134,23 +135,23 @@ body {
 }
 
 .perigo-frio {
-  background-color: #5c6bc0;
+  background-color: #8e402a;
 }
 
 .perigo-quente {
-  background-color: #ff7043;
+  background-color: #ffc600;
 }
 
 .alerta-frio {
-  background-color: #42a5f5;
+  background-color: #a05822;
 }
 
 .alerta-quente {
-  background-color: #ffee58;
+  background-color: #ddad00d0;
 }
 
 .ideal {
-  background-color: #9ccc65;
+  background-color: #d5d5d5;
 }
 
 .item-regua {
@@ -179,7 +180,7 @@ body {
   text-align: center;
   height: 180px;
   justify-content: right;
-  background-color: #212124;
+  background-color: #1a1a5a;
   font-size: 20px;
 }
 
