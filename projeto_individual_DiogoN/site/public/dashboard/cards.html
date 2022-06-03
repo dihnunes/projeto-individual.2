@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Tempo Real</title>
+    <title>Milton's | Indíce de resposta</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
@@ -69,29 +69,29 @@
                 <div class="card">
                     <h1>resposta 1</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_1">-°C</p>
+                        <p id="temp_aquario_1">0</p>
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
                 </div>
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>resposta 2</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_2">-°C</p>
+                        <p id="temp_aquario_2">0</p>
                     </div>
                     <div class="cor-alerta" id="card_2"></div>
 
                 </div>
                 <div class="card">
-                    <h1>resposta 2</h1>
+                    <h1>resposta 3</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_3">-°C</p>
+                        <p id="temp_aquario_3">0</p>
                     </div>
                     <div class="cor-alerta ideal" id="card_3"></div>
                 </div>
                 <div class="card">
-                    <h1>resposta 3</h1>
+                    <h1>resposta 4</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_4">-°C</p>
+                        <p id="temp_aquario_4">0</p>
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
                 </div>
@@ -127,20 +127,11 @@
         obterdados(3);
         obterdados(4);
 
-        function sendData() {
-			var http = new XMLHttpRequest();
-			http.open('POST', 'http://localhost:3000/api/sendData', false);
-			http.send(null);
-		}
-
-        setInterval(() => {
-			sendData();
-		}, 2000);
         setTimeout(atualizacaoPeriodica, 5000);
     }
 
-    function obterdados(idAquario) {
-        fetch(`/medidas/tempo-real/${idAquario}`)
+    function obterdados(idquestionario) {
+        fetch(`/medidas/tempo-real/${idquestionario}`)
             .then(resposta => {
 
                 if (resposta.ok) {
@@ -149,10 +140,10 @@
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                         var dados = {
-                            temperatura: resposta[0].temperatura,
+                            total_respostas: resposta[0].total_respostas,
                         }
 
-                        alertar(resposta[0].temperatura, idAquario);
+                        alertar(resposta[0].total_respostas, idquestionario);
                     });
                 } else {
 
@@ -165,7 +156,7 @@
 
     }
 
-    function alertar(temperatura, idAquario) {
+    function alertar(temperatura, idquestionario) {
         var limites = {
             muito_famoso: 100,
             famoso: 70,
@@ -199,17 +190,17 @@
 
         var card;
 
-        if (idAquario == 1) {
-            temp_aquario_1.innerHTML = temperatura + "°C";
+        if (idquestionario == 1) {
+            temp_aquario_1.innerHTML = `${total_respostas}`;
             card = card_1
-        } else if (idAquario == 2) {
-            temp_aquario_2.innerHTML = temperatura + "°C";
+        } else if (idquestionario == 2) {
+            temp_aquario_2.innerHTML = `${total_respostas}`;
             card = card_2
-        } else if (idAquario == 3) {
-            temp_aquario_3.innerHTML = temperatura + "°C";
+        } else if (idquestionario == 3) {
+            temp_aquario_3.innerHTML = `${total_respostas}`;
             card = card_3
-        } else if (idAquario == 4) {
-            temp_aquario_4.innerHTML = temperatura + "°C";
+        } else if (idquestionario == 4) {
+            temp_aquario_4.innerHTML = `${total_respostas}`;
             card = card_4
         }
 
