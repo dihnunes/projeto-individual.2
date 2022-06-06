@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Milton's | Questionario</title>
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!--header inicio-->
+    <div class="header">
+        <ul class="navbar">
+            <h1 class="titulo">Milton's</h1>
+            <li class="leftLi1"><a href="cadastro.html">Não possui conta?</a></li>
+            <li class="leftLi2"><a href="login.html">Entrar</a></li>
+
+            <li class="li1"><a href="index.html">Noticias recentes</a></li>
+            <li class="li2"><a href="#">Eleições 2022</a></li>
+            <li class="li3"><a href="#">Esportes</a></li>
+            <li class="li4"><a href="questionario.html" class="agora">Questionario</a></li>
+            <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
+        </ul>
+
+    </div>
+    
+    <div class="banner ">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="container tamanho-conteudo">
+            <div class="card medio">
+                <h2>Bem-vindo!</h2>
+                <div class="formulario">
+                    <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
+                     Qual tipo de noticia você mais gosta de acompanhar?<br>
+                     <select name="resposta" id="r1_select">
+                         <option value="politica">politica</option>
+                         <option value="Esportes">Esportes</option>
+                         <option value="Entretenimento">Entretenimento</option>
+                         <option value="global">acontecimentos globais</option>
+                     </select> <br>
+                     <br>
+                     Qual assunto da atualidade você tem mais interesse?<br>
+                     <select name="resposta2" id="r2_select">
+                         <option value="Ucrania">guerra na Ucrania</option>
+                         <option value="Depp">caso de Jhonny Depp</option>
+                         <option value="Elon">Elon Musk no Brasil</option>
+                         <option value="eco">economia no geral</option>
+                     </select> <br>
+                     <br>
+                     Sobre esportes, deseja saber sobre o que exatamente?<br>
+                     <select name="resposta3" id="r3_select">
+                         <option value="fotebol">sobre fotebol</option>
+                         <option value="basquete">sobre basquete</option>
+                         <option value="e-sports">sobre e-sports</option>
+                         <option value="all">sobre tudo</option>
+                         <option value="nada">não tenho interesse em esportes</option>
+                     </select> <br>
+                     <br>
+                     Sobre Entretenimento, gostaria em ler blogs sobre o que?<br>
+                     <select name="resposta4" id="r4_select">
+                         <option value="fotebol">lançamentos de filmes</option>
+                         <option value="basquete">noticias de atores</option>
+                         <option value="e-sports">lançamento de jogos</option>
+                         <option value="all">noticias sobre o mundo dos jogos</option>
+                         <option value="nada">não tenho interesse em Entretenimento</option>
+                     </select> <br>
+                     <br>
+                     Sobre usa experiencia, como está sendo?<br>
+                     <select name="resposta5" id="r5_select">
+                         <option value="otima">otima</option>
+                         <option value="boa">boa</option>
+                         <option value="neutra">neutra</option>
+                         <option value="ruim">ruim</option>
+                         <option value="pessima">pessima</option>
+                     </select> <br>
+                <button onclick="cadastrar_questionario()" class="button_questionario">Encerrar</button>
+
+                </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer inicio-->
+    <div class="footer">
+        <div class="line1">
+            <h1>Milton's</h1>
+            <span>Todos os direitos reservados - 2022 - feito por &copy;DNunes</span>
+        </div>
+
+        <div class="decoração"></div>
+
+        <div class="line2">
+            <ul class="footerLi">
+                <li class="li1"><a href="">Fale conosco</a></li>
+                <li class="li2"><a href="">Comunicar erro</a></li>
+                <li class="li3"><a href="">Anuncie no Milton's</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--footer fim-->
+
+
+</body>
+
+</html>
+<script>
+function cadastrar_questionario() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var resposta1Var = r1_select.value;
+        var resposta2Var = r2_select.value;
+        var resposta3Var = r3_select.value;
+        var resposta4Var = r4_select.value;
+        var resposta5Var = r5_select.value;
+
+        if (resposta1Var == "" || resposta2Var == "" || resposta3Var == "" || resposta4Var == "" || resposta5Var == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar_questionario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                resposta1Server: resposta1Var,
+                resposta2Server: resposta2Var,
+                resposta3Server: resposta3Var,
+                resposta4Server: resposta4Var,
+                resposta5Server: resposta5Var
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "respostas guardadas com sucesso! Redirecionando para o índice de resposta...";
+
+                setTimeout(() => {
+                    window.location = "dashboard/cards.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+}
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
