@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #FFFFFF;
+  background-color: #ffffff98;
 }
 
 .container {
@@ -14,7 +14,7 @@ body {
 }
 
 .header {
-  width: 1339px;
+  width: 99.1%;
   height: 5%;
   display: flex;
   flex-direction: row;
@@ -99,13 +99,39 @@ body {
   margin-top: 30px;
   margin-left: 45px;
   margin-right: 25px;
+  margin-bottom: 30px;
   padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   justify-content: left;
   align-items: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),
+   0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .news img {
-  width: 600px;
+  width: 500px;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 40px;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: rgb(19, 9, 149);
+  color: white;
+  height: 40px;
+  width: 5px;
+  line-height: 30px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .tamanho-conteudo {
@@ -114,7 +140,7 @@ body {
 
 /* footer */
 .footer {
-  width: 1348px;
+  width: 98.7vw;
   height: 5%;
   margin-top: 20%;
   flex-direction: row;
@@ -208,6 +234,31 @@ button {
 
 /* FORMULARIO */
 
+.card{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),
+  0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button_questionario{
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 125px;
+  height: 35px;
+  margin-top: 30px;
+  margin-left: 34%;
+  padding: 10px;
+}
+
+.formulario select{
+  width: 50%;
+  border-radius: 10px;
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: medium;
+}
+
 .alerta_erro {
   display: flex;
   justify-content: flex-end;
@@ -238,6 +289,7 @@ button {
 .formulario {
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 input {

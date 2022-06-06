@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milton's | Página Inicial</title>
+    <title>Milton's | Esportes</title>
 
     <script src="./js/funcoes.js"></script>
 
@@ -32,6 +32,10 @@
                 <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
             </ul>
         </div>
+
+        <button id="back-to-top">
+            <span>⬆</span>
+        </button>
 
         <div class="news">
             <h1>Jogador Willian, do Corinthians, registra queixa por ameaça à família</h1> <br>
@@ -316,3 +320,9 @@
 </body>
 
 </html>
+<script>
+    var btn = document.querySelector("#back-to-top");
+    btn.addEventListener("click", function () {
+        window.scrollTo(0, 0);
+    });
+</script>

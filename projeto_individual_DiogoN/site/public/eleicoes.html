@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Milton's | Página Inicial</title>
+    <title>Milton's | Eleições 2022</title>
 
     <script src="./js/funcoes.js"></script>
 
@@ -26,13 +26,17 @@
                 <li class="leftLi1"><a href="cadastro.html">Não possui conta?</a></li>
                 <li class="leftLi2"><a href="login.html">Entrar</a></li>
 
-                <li class="li1"><a href="index.html" class="agora">Noticias recentes</a></li>
+                <li class="li1"><a href="index.html">Noticias recentes</a></li>
                 <li class="li2"><a href="#" class="agora">Eleições 2022</a></li>
-                <li class="li3"><a href="#">Esportes</a></li>
+                <li class="li3"><a href="esporte.html">Esportes</a></li>
                 <li class="li4"><a href="questionario.html">Questionario</a></li>
                 <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
             </ul>
         </div>
+
+        <button id="back-to-top">
+            <span>⬆</span>
+        </button>
 
         <div class="news">
             <h1>Deputado afastado por Lira diz ter “plena convicção” de que vai recuperar cargo</h1> <br>
@@ -278,3 +282,9 @@
         </div>
     </div>
 </body>
+<script>
+    var btn = document.querySelector("#back-to-top");
+    btn.addEventListener("click", function () {
+        window.scrollTo(0, 0);
+    });
+</script>
