@@ -71,14 +71,12 @@
                     <div class="temperatura">
                         <p id="temp_aquario_1">0</p>
                     </div>
-                    <div class="cor-alerta" id="card_1"></div>
                 </div>
                 <div class="card">
                     <h1>resposta 2</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_2">0</p>
                     </div>
-                    <div class="cor-alerta" id="card_2"></div>
 
                 </div>
                 <div class="card">
@@ -86,14 +84,12 @@
                     <div class="temperatura">
                         <p id="temp_aquario_3">0</p>
                     </div>
-                    <div class="cor-alerta ideal" id="card_3"></div>
                 </div>
                 <div class="card">
                     <h1>resposta 4</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_4">0</p>
                     </div>
-                    <div class="cor-alerta" id="card_4"></div>
                 </div>
 
             </div>
@@ -191,16 +187,16 @@
         var card;
 
         if (idquestionario == 1) {
-            temp_aquario_1.innerHTML = `${total_respostas}`;
+            temp_aquario_1.innerHTML = `${total_respostas * 4}`;
             card = card_1
         } else if (idquestionario == 2) {
-            temp_aquario_2.innerHTML = `${total_respostas}`;
+            temp_aquario_2.innerHTML = `${total_respostas * 20}`;
             card = card_2
         } else if (idquestionario == 3) {
-            temp_aquario_3.innerHTML = `${total_respostas}`;
+            temp_aquario_3.innerHTML = `${total_respostas * 3}`;
             card = card_3
         } else if (idquestionario == 4) {
-            temp_aquario_4.innerHTML = `${total_respostas}`;
+            temp_aquario_4.innerHTML = `${total_respostas * 23}`;
             card = card_4
         }
 
