@@ -2,11 +2,10 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Dashboards</title>
+    <title>Milton's| graficos por preferencia</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
@@ -25,55 +24,63 @@
 <body onload="validarSessao(), atualizarFeed()">
 
     <div class="janela">
-        <div class="header-left">
-            <h1>AcquaTec</h1>
+             <!--header inicio-->
+    <div class="header">
+        <ul class="navbar">
+            <h1 class="titulo">Milton's</h1>
+            <li class="leftLi1"><a href="cadastro.html">Não possui conta?</a></li>
+            <li class="leftLi2"><a href="login.html">Entrar</a></li>
 
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
+            <li class="li1"><a href="index.html">Noticias recentes</a></li>
+            <li class="li2"><a href="#">Eleições 2022</a></li>
+            <li class="li3"><a href="#">Esportes</a></li>
+            <li class="li4"><a href="questionario.html" class="agora">Questionario</a></li>
+            <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
+        </ul>
 
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
+    </div>
 
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
+            <!-- <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
-            </div>
-
-        </div>
+            </div> -->
 
         <div class="dash">
             <div class="btns-dash">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
                 <button class="btn-chart btn-pink" onclick="obterDadosGrafico(1)">Aquario 1</button>
-                <button class="btn-chart btn-white" onclick="obterDadosGrafico(2)">Aquario 2</button>
-                <button class="btn-chart btn-white" onclick="obterDadosGrafico(3)">Aquario 3</button>
-                <button class="btn-chart btn-white" onclick="obterDadosGrafico(4)">Aquario 4</button>
             </div>
             <div>
                 <h3 class="tituloGraficos">
-                    <span id="tituloAquario">123</span>
+                    <span>Grafico em escala nacional perante as preferencias <br>
+                        selecionadas no questionario.</span>
                 </h3>
             </div>
             <div class="graph">
                 <canvas id="canvas_grafico"></canvas>
             </div>
+
+            <button class="dash_btn"><a href="../index.html">voltar ao inicio</a></button>
         </div>
     </div>
+
+        <!--footer inicio-->
+        <div class="footer">
+            <div class="line1">
+                <h1>Milton's</h1>
+                <span>Todos os direitos reservados - 2022 - feito por &copy;DNunes</span>
+            </div>
+    
+            <div class="decoração"></div>
+    
+            <div class="line2">
+                <ul class="footerLi">
+                    <li class="li1"><a href="">Fale conosco</a></li>
+                    <li class="li2"><a href="">Comunicar erro</a></li>
+                    <li class="li3"><a href="">Anuncie no Milton's</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--footer fim-->
 
 
 </body>

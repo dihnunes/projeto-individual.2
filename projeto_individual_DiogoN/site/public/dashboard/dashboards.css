@@ -1,3 +1,5 @@
+
+
 /* pagina mural */
 
 *,
@@ -111,12 +113,12 @@ body {
 
 .dash {
   width: 75%;
+  margin-top: 10%;
   margin-left: 13%;
   margin-right: 13%;
   top: 0;
   left: 25%;
   background-color: rgb(19, 9, 149);
-
   /* width: 75%;
     display: flex;
     background-color: #161618;
@@ -124,6 +126,24 @@ body {
     align-items: center;
     justify-content: space-around;*/
   height: 100vh;
+  border: 3px solid black;
+  border-radius: 8px;
+}
+
+.dash_btn{
+  height: 60px;
+  width: 120px;
+  margin-left: 44.4%;
+}
+
+.card_btn{
+  height: 60px;
+  width: 120px;
+  margin-left: 44.4%;
+}
+
+.dash_btn a{
+  text-decoration: none;
 }
 
 .regua {
