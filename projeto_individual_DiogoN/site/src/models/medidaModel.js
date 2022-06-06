@@ -36,12 +36,12 @@ function buscarMedidasEmTempoReal(idquestionario) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top 1 count(questao1) from questionario where questao1 like ${idquestionario} 
+        instrucaoSql = `select count(questao1) as 'total_respostas' from questionario where questao1 like ${idquestionario} 
                     order by id desc`; 
         // `select count(questao1) from questionario where questao1 like ${idquestionario}`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select count(questao1) from questionario`;
+        instrucaoSql = `select count(questao1) as 'total_respostas' from questionario`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
