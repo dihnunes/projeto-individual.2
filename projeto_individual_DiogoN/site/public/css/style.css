@@ -103,6 +103,7 @@ body {
   padding-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 45px;
   justify-content: left;
   align-items: center;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),
@@ -111,6 +112,15 @@ body {
 
 .news img {
   width: 500px;
+}
+
+.gostos_in{
+  width: 350px;
+}
+
+.gosto_btn{
+  height: 60px;
+  margin-bottom: 35px;
 }
 
 #back-to-top {

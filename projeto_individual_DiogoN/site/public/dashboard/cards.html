@@ -26,11 +26,11 @@
             <li class="leftLi1"><a href="cadastro.html">Não possui conta?</a></li>
             <li class="leftLi2"><a href="login.html">Entrar</a></li>
 
-            <li class="li1"><a href="index.html">Noticias recentes</a></li>
-            <li class="li2"><a href="#">Eleições 2022</a></li>
-            <li class="li3"><a href="#">Esportes</a></li>
-            <li class="li4"><a href="questionario.html" class="agora">Questionario</a></li>
-            <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
+            <li class="li1"><a href="../index.html">Noticias recentes</a></li>
+            <li class="li2"><a href="../eleicoes.html">Eleições 2022</a></li>
+            <li class="li3"><a href="../esporte.html">Esportes</a></li>
+            <li class="li4"><a href="../questionario.html" class="agora">Questionario</a></li>
+            <li class="li5"><a href="../sobrenos.html">Sobre Nós</a></li>
         </ul>
 
     </div>
@@ -45,23 +45,23 @@
             <div class="regua">
                 <div class="item-regua perigo-frio">
                     <h4>pouca preferência</h4>
-                    <h2>0</h2>
+                    <h2>20</h2>
                 </div>
                 <div class="item-regua alerta-frio">
                     <h4>Não muito escolhido</h4>
-                    <h2>0</h2>
+                    <h2>30</h2>
                 </div>
                 <div class="item-regua ideal">
                     <h4>Normal</h4>
-                    <h2>0</h2>
+                    <h2>50</h2>
                 </div>
                 <div class="item-regua alerta-quente">
                     <h4>Muito escolhido</h4>
-                    <h2>0</h2>
+                    <h2>70</h2>
                 </div>
                 <div class="item-regua perigo-quente">
                     <h4>Tópico famoso</h4>
-                    <h2>0</h2>
+                    <h2>100</h2>
                 </div>
             </div>
 
@@ -156,7 +156,7 @@
 
     }
 
-    function alertar(temperatura, idquestionario) {
+    function alertar(total_respostas, idquestionario) {
         var limites = {
             muito_famoso: 100,
             famoso: 70,
@@ -167,23 +167,23 @@
 
         var classe_temperatura = 'cor-alerta';
 
-        if (temperatura >= limites.muito_famoso) {
+        if (total_respostas >= limites.muito_famoso) {
             classe_temperatura = 'cor-alerta perigo-quente';
             console.log("caiu no 1")
         }
-        else if (temperatura < limites.muito_quente && temperatura >= limites.famoso) {
+        else if (total_respostas < limites.muito_quente && total_respostas >= limites.famoso) {
             classe_temperatura = 'cor-alerta alerta-quente';
             console.log("caiu no 2")
         }
-        else if (temperatura < limites.quente && temperatura > limites.nao_muito_famoso) {
+        else if (total_respostas < limites.quente && total_respostas > limites.nao_muito_famoso) {
             classe_temperatura = 'cor-alerta ideal';
             console.log("caiu no 3")
         }
-        else if (temperatura <= limites.frio && temperatura > limites.pouco_visto) {
+        else if (total_respostas <= limites.frio && total_respostas > limites.pouco_visto) {
             classe_temperatura = 'cor-alerta alerta-frio';
             console.log("caiu no 4")
         }
-        else if (temperatura < limites.normal) {
+        else if (total_respostas < limites.normal) {
             classe_temperatura = 'cor-alerta perigo-frio';
             console.log("caiu no 5")
         }

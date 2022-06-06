@@ -37,7 +37,17 @@
             <span>⬆</span>
         </button>
 
+        
+        
         <div class="corpo">
+            <div class="news">
+                <span>Antes de começarmos, gostaria de ver o quão popular seus topicos favoritos são?<br>
+                 Sim? Então informe seus gostos a baixo. <br> </span> <br>
+                <input id="gostos_input" type="text" class="gostos_in" placeholder="informe apenas um nome de referência"> <br>
+                <button onclick="guardar_gosto()" class="gosto_btn">Ver Popularidade</button>
+                <div id="mostrar_lista"></div>
+            </div>
+
             <div class="news">
                 <h1>Toffoli rejeita pedido de investigação de Bolsonaro contra Alexandre Moraes</h1> <br>
                 <img src="https://www.tnh1.com.br/fileadmin/_processed_/1/7/csm_toffoli-ministro-stf-SCO_85fe0bd2a9.jpg"
@@ -51,20 +61,20 @@
                 <h1>Dois policiais rodoviários federais são mortos a tiros na BR-116, no Ceará</h1> <br>
                 <img src="https://portalt5-cdn1.cworks.cloud/fileadmin/_processed_/1/0/csm_Captura_de_tela_2022-05-18_09-43-25_fbae5be108.png"
                     alt=""><br>
-                    <span>
-                        Dois policiais rodoviários federais foram assassinados na manhã <br>
-                        desta quarta-feira (18/5), no km 6 da BR-116, em Fortaleza (CE), <br>
-                        por um homem que também morreu no conflito<br>
-                    </span>
+                <span>
+                    Dois policiais rodoviários federais foram assassinados na manhã <br>
+                    desta quarta-feira (18/5), no km 6 da BR-116, em Fortaleza (CE), <br>
+                    por um homem que também morreu no conflito<br>
+                </span>
             </div>
 
             <div class="news">
                 <h1>Fim da batalha em Mariupol: Rússia diz que 959 ucranianos se renderam</h1> <br>
                 <img src="https://s02.video.glbimg.com/x240/10581845.jpg" alt=""> <br>
-               <span>
-                   Destino dos soldados, que viraram prisioneiros de guerra, ainda é incerto.<br>
-                   Feridos estão em hospital da Ucrânia.
-               </span> <br>
+                <span>
+                    Destino dos soldados, que viraram prisioneiros de guerra, ainda é incerto.<br>
+                    Feridos estão em hospital da Ucrânia.
+                </span> <br>
             </div>
 
             <div class="news">
@@ -193,8 +203,22 @@
 
 </html>
 <script>
+    var lista_gosto = []
+
     var btn = document.querySelector("#back-to-top");
     btn.addEventListener("click", function () {
         window.scrollTo(0, 0);
     });
+
+    function guardar_gosto(){
+        var texto_inserido = gostos_input.value
+        lista_gosto.push(texto_inserido)
+
+        mostrar_lista.innerHTML=``
+
+        for(var posicao = 0; posicao<lista_gosto.length; posicao++){
+            mostrar_lista.innerHTML += `${lista_gosto[posicao]}. Total de pesquisas: ${Math.random() * 10}<br>`
+        }
+        
+    }
 </script>
