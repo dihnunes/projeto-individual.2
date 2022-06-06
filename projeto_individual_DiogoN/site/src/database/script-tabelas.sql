@@ -8,13 +8,6 @@ email_usuario varchar(45),
 senha_usuario varchar(45)
 );
 
-create table coment(
-idcoment int primary key auto_increment,
-fkusuario int,
-foreign key (fkusuario) references usuario(idusuario),
-comentario varchar(300)
-);
-
 create table questionario(
 idquestionario int primary key auto_increment,
 fkusuario int,
