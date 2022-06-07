@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milton's| graficos por preferencia</title>
+    <title>Milton's | graficos por preferencia</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
@@ -32,9 +32,9 @@
             <li class="leftLi2"><a href="login.html">Entrar</a></li>
 
             <li class="li1"><a href="index.html">Noticias recentes</a></li>
-            <li class="li2"><a href="#">Eleições 2022</a></li>
-            <li class="li3"><a href="#">Esportes</a></li>
-            <li class="li4"><a href="questionario.html" class="agora">Questionario</a></li>
+            <li class="li2"><a href="../eleicoes.html">Eleições 2022</a></li>
+            <li class="li3"><a href="../esporte.html">Esportes</a></li>
+            <li class="li4"><a href="../questionario.html" class="agora">Questionario</a></li>
             <li class="li5"><a href="sobrenos.html">Sobre Nós</a></li>
         </ul>
 
@@ -51,7 +51,7 @@
             </div>
             <div>
                 <h3 class="tituloGraficos">
-                    <span>Grafico em escala nacional perante as preferencias <br>
+                    <span id="tituloAquario">Grafico em escala nacional perante as preferencias <br>
                         selecionadas no questionario.</span>
                 </h3>
             </div>
@@ -97,9 +97,9 @@
 
     verificar_autenticacao();
 
-    function alterarTitulo(idAquario) {
+    function alterarTitulo(idquestionario) {
         var tituloAquario = document.getElementById("tituloAquario")
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+        tituloAquario.innerHTML = "Últimos dados coletados os quais são igauis as suas preferencias que foram dadas no <span style='color: #e6005a'>questionario " + idquestionario + "</span>"
     }
 
     // O gráfico é construído com três funções:
@@ -148,7 +148,7 @@
             datasets: [
                 {
                     yAxisID: 'y-umidade',
-                    label: 'Umidade',
+                    label: 'resposta 1',
                     borderColor: '#32B9CD',
                     backgroundColor: '#32b9cd8f',
                     fill: true,
@@ -156,7 +156,7 @@
                 },
                 {
                     yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
+                    label: 'resposta 2',
                     borderColor: '#FFF',
                     backgroundColor: '#32b9cd8f',
                     fill: true,
@@ -168,8 +168,8 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
+            dados.datasets[0].data.push(registro.total_respostas);
+            dados.datasets[1].data.push(registro.total_respostas2);
         }
 
         console.log(JSON.stringify(dados));
@@ -237,12 +237,14 @@
                     // tirando e colocando valores no gráfico
                     dados.labels.shift(); // apagar o primeiro
                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                    
+
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+                    dados.datasets[0].data.push(novoRegistro[0].total_respostas); // incluir uma nova medida de umidade
+                   console.log(dados.datasets[0].data.push(novoRegistro[0].total_respostas))
                     
                     dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                    dados.datasets[1].data.push(novoRegistro[0].total_respostas2); // incluir uma nova medida de temperatura
+                    console.log(dados.datasets[1].data.push(novoRegistro[0].total_respostas2))
 
                     window.grafico_linha.update();
 
