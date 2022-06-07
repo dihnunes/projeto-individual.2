@@ -16,8 +16,20 @@ questao1 varchar(45),
 questao2 varchar(45),
 questao3 varchar(45),
 questao4 varchar(45),
-questao5 varchar(45)
-);
+questao5 varchar(45),
+momento datetime default current_timestamp 
+); 
+
+drop table questionario;
+select * from usuario;
+select * from questionario;
+
+
+INSERT INTO questionario (questao1, questao2, questao3, questao4, questao5) 
+        VALUES ('Esportes', 'eco', 'all', 'fotebol', 'boa');
+        
+INSERT INTO questionario (questao2, questao3, questao4, questao5) 
+        VALUES ('eco', 'all', 'fotebol', 'boa');
 
 /* para sql server - remoto - produção */
 CREATE TABLE usuario (
